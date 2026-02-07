@@ -1,0 +1,8 @@
+# Downloaded data
+/data/
+
+# Local dataset artifacts (do not commit)
+*.zip
+*.xlsx
+physionet.org/
+mimic_sepsis/
