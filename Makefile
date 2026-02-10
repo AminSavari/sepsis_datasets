@@ -8,9 +8,9 @@ ZENODO_URL ?= https://zenodo.org/records/18519059/files/sepsis_datasets.zip?down
 
 .PHONY: data clean-data
 
-<<<<<<< HEAD
+
 data: | $(DATA_DIR)/.dir
-=======
+
 $(DATA_DIR):
 	@mkdir -p $(DATA_DIR)
 
@@ -23,7 +23,6 @@ data: $(DATA_DIR)
 		echo "  make data ZENODO_URL=\"https://zenodo.org/records/XXXX?download=1\""; \
 		exit 1; \
 	fi
->>>>>>> 21a9228 (added Makefile)
 	@echo "Downloading from Zenodo..."
 	@curl -L --fail --retry 3 --retry-delay 2 -o "$(DATA_ARCHIVE)" "$(ZENODO_URL)"
 	@file "$(DATA_ARCHIVE)" | grep -qi zip || (echo "ERROR: Downloaded file is not a ZIP. Check ZENODO_URL."; exit 2)
@@ -32,13 +31,13 @@ data: $(DATA_DIR)
 	@mkdir -p "$(DATA_EXTRACT_DIR)"
 	@unzip -o "$(DATA_ARCHIVE)" -d "$(DATA_EXTRACT_DIR)" >/dev/null
 	@echo "Extracted to: $(DATA_EXTRACT_DIR)"
-<<<<<<< HEAD
+
 
 $(DATA_DIR)/.dir:
 	@mkdir -p "$(DATA_DIR)"
 	@touch "$(DATA_DIR)/.dir"
 =======
->>>>>>> 21a9228 (added Makefile)
+
 
 clean-data:
 	@rm -rf "$(DATA_DIR)"
